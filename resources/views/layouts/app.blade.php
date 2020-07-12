@@ -62,11 +62,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('users.edit-profile') }} ">
+                                        My Profile
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -95,9 +99,24 @@
                         @endif
                     <div class="row">
                         <div class="col-md-4">
+                            @if(auth()->user()->isAdmin())
+
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{{ route('users.index') }}">User</a>
+                                </li>
+                            </ul>
+                            @endif
+
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href="{{ route('posts.index') }}">Posts</a>
+                                </li>
+                            </ul>
+
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{{ route('tags.index') }}">Tags</a>
                                 </li>
                             </ul>
 
