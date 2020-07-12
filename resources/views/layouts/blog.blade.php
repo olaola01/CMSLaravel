@@ -50,9 +50,9 @@
 
             </ul>
         </section>
-
+            @if(!auth()->user())
         <a class="btn btn-xs btn-round btn-success" href="{{ route('login') }}">Login</a>
-
+        @endif
     </div>
 </nav><!-- /.navbar -->
 
